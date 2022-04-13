@@ -1,4 +1,4 @@
-//=========Problem 2 ==========//
+//=========Problem 1 ==========//
 
 // Write a function that converts a string to an integer.
 
