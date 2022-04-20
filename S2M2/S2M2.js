@@ -77,11 +77,18 @@ Examine an array and determine the length of the longest run of elements. That i
 // Partialy passing
 
 function solution(a) {
-    let runNum = a[0]
-    let run = 0
-    for(let i = 0; i < a.length; i ++){
-        if(a[i] === runNum || a[i] === a[i + 1]){
-            run++
+    if(a.length === 0) return 0;
+    let currentNumber = a[0]
+    let count = 0
+    let maxLength = 1
+    for(let i = 1; i < a.length; i ++){
+        let temp = a[i]
+        if(currentNumber === temp){
+            count++
+            if (count > maxLength) maxLength = count;
+        } else {
+            currentNumber = temp;
+            count = 1;
         }
     }
     return run;
