@@ -260,5 +260,10 @@ function solution(n) {
     return str;
 }
 
+//=======OR=========//
+function solution(n) {
+    return Array(n).fill('A').join('')
+}
+
 //========= End  ==========//
 

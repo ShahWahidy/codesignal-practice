@@ -93,6 +93,14 @@ function solution(a) {
     return [a, newArr]
 }
 
+//=========OR=====/
+function solution(a) {
+    let first = a.shift()
+    let last = a.pop()
+    let newArray = [[...a], [first, last]]
+    return newArray;
+}
+
 //=========Problem 8 ==========//
 
 // Write a function that inserts a new value in the middle of an array.
@@ -115,6 +123,16 @@ function solution(a, v) {
         return false;
     }
 
+}
+
+//=====OR====//
+function solution(a, v) {
+    let flag = false
+    for (let i = 0; i < a.length; i++){
+        if(a[i] === v) flag = true
+    }
+    
+    return flag;
 }
 
 //=========Problem 10 ==========//
@@ -143,7 +161,7 @@ function solution(a) {
 function solution(a) {
     let sum = 0;
     if (a.length <=0){
-        return a;
+        return sum;
     }else{
         sum = a.reduce((acc, x) => acc + x, 0)
     }
@@ -160,6 +178,11 @@ function solution(n, m) {
     
     return str;
     
+}
+
+//======OR=========//
+function solution(n, m) {
+    return Array(n).fill('A').join('') + Array(m).fill('B').join('')
 }
 
 //=========Problem 13 ==========//
@@ -210,6 +233,24 @@ function solution(s) {
 
 //=========Problem 16 ==========//
 
+// Given a number and a field width, return a string with that number padded with leading zeros.
+
+// The field width is the total number of digits in the result string, not the number of zeros.
+
+// If the width is smaller than the number of digits in the n, return a string containing only n.
+
+function solution(n, width) {
+    let m = String(n)
+    let dif = width - m.length
+    
+    if ( dif > 0){
+        let zeros = Array(dif).fill('0').join('')
+        return zeros + m
+    } else {
+        return m
+    }  
+    
+}
 
 //=========Problem 17 ==========//
 

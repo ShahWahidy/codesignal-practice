@@ -213,6 +213,13 @@ function solution(a, b, c, d, e, f) {
     return highestNum
 }
 
+//OR using built in method 
+function solution(a, b, c, d, e, f) {
+    const nums = [a,b,c,d,e,f]
+    return Math.max(...nums)
+}
+
+
 // function solution(a, b, c, d, e, f){
 //     return Math.max(a, b, c, d, e, f)
 // }
