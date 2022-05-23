@@ -86,8 +86,50 @@ function solution(a, window_size) {
     return averages;
 }
 //=========Problem 4 ==========//
+
+You are given an array of integers a. Your task is to calculate how many numbers in the array are equal to the arithmetic mean of their immediate neighbors.
+
+In other words, count the number of indices i such that a[i] = (a[i - 1] + a[i + 1]) / 2.
+
+Note: If a[i - 1] or a[i + 1] don't exist, they should be considered equal to 0.
+
+function solution(a) {
+    let count = 0 
+    for(let i = 0; i < a.length; i ++){
+        const current = a[i]
+        const before = a[i - 1] || 0
+        const after = a[i + 1] || 0
+        const average = (before + after) / 2
+        if (average === current) count ++
+    }
+    return count
+}
 //=========Problem 5 ==========//
+
+Avoid using built-in functions to solve this challenge. Implement them yourself, since this is what you would be asked to do during a real interview.
+
+Implement a function that takes two strings, s and x, as arguments and finds the first occurrence of the string x in s. The function should return an integer indicating the index in s of the first occurrence of x. If there are no occurrences of x in s, return -1.
+
+function solution(s, x) {
+    return s.indexOf(x)
+}
+
 //=========Problem 6 ==========//
+
+Given a string s consisting of small English letters, find and return the first instance of a non-repeating character in it. If there is no such character, return '_'.
+
+function solution(s) {
+    const letterCount = {}
+    for(let i = 0; i < s.length; i++){
+        const char = s[i]
+        if(char in letterCount) letterCount[char]++
+        else letterCount[char] = 1
+    }
+    for (let key in letterCount) {
+        if(letterCount[key] === 1) return key
+    }
+    return '_'
+}
 //=========Problem 7 ==========//
 
 You're given an array of integers a. Let's call (a[i - 1], a[i], a[i + 1]) a good tuple, if exactly 2 out of the 3 numbers in it are equal. For example, (2, 1, 2) is a good tuple, but (1, 1, 1) and (1, 2, 3) are not.
@@ -112,3 +154,23 @@ function solution(a) {
 }
 
 //=========Problem 8 ==========//
+
+You have a string s. Split s into the minimum possible number of increasing substrings. A substring is considered to be increasing when the next symbol in the substring is also next in the English alphabet. This is case sensitive, i.e. 'b' is next for 'a' but 'C' is not next for 'b'. Return an array of these substrings.
+
+function solution(s) {
+    let str = s[0]
+    let sol = []
+    for (let i = 1; i < s.length; i ++){
+        const lastCharInStr = str[str.length-1]
+        const currentChar = s[i]
+        const ccLCIS = lastCharInStr.charCodeAt(0)
+        const ccCC = currentChar.charCodeAt(0);
+        if (ccCC -1 === ccLCIS) str += currentChar
+        else {
+            sol.push(str)
+            str = currentChar
+        }
+    }
+    sol.push(str)
+    return sol
+}
