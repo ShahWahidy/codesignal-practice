@@ -29,13 +29,15 @@ An empty array is a palindrome. // partial passing test
 
 function solution(arr) {
     const len = arr.length;
-    if (len % 2 == 0) return false;
 
     for (let i = 0; i < len / 2; i++) {
         if (arr[i] !== arr[len - i - 1]) return false;
     }
     return true;
 }
+//OR 
+
+return a.join('') === a.revers().join('')
 
 //=========Problem 4 ==========//
 
